@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0f172a;
+  --secondary: #06b6d4;
+  --primary-light: #1e293b;
+  --secondary-light: #22d3ee;
+  --secondary-dark: #0891b2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-primary text-white font-sans;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-primary-light;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-secondary-light;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-secondary-light;
+}
+
+.bg-grid {
+  background-image: linear-gradient(to right, rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.glass-card {
+  @apply bg-primary-light bg-opacity-80 backdrop-blur-lg border border-secondary/20 rounded-xl;
+}
+
+.nav-link {
+  @apply relative text-white hover:text-secondary transition-colors duration-300 px-4 py-2;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute left-0 bottom-0 w-0 h-0.5 bg-secondary transition-all duration-300 ease-in-out;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.active-nav-link {
+  @apply text-secondary;
+}
+
+.active-nav-link::after {
+  @apply w-full;
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, rgba(15, 23, 42, 0) 50%);
+}
+
+.project-card {
+  @apply glass-card overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-secondary/20 hover:-translate-y-2;
+}
+
+.skill-card {
+  @apply glass-card flex items-center justify-center p-4 transition-all duration-300 hover:bg-secondary hover:text-primary font-medium;
+}
+
+.timeline-item {
+  @apply relative pl-8 pb-10 border-l border-secondary/30 last:border-0 last:pb-0;
+}
+
+.timeline-dot {
+  @apply absolute -left-1.5 w-3 h-3 rounded-full bg-secondary;
+}
+
+.contact-input {
+  @apply w-full bg-primary-light border border-secondary/20 rounded-lg p-3 text-white focus:outline-none focus:border-secondary transition-colors duration-300;
+}
+
+.btn-primary {
+  @apply px-6 py-3 bg-secondary text-primary font-bold rounded-lg transition-all duration-300 hover:bg-secondary-light hover:shadow-lg hover:shadow-secondary/20;
+}
+
+.btn-outline {
+  @apply px-6 py-3 bg-transparent border border-secondary text-secondary font-bold rounded-lg transition-all duration-300 hover:bg-secondary/10 hover:shadow-lg hover:shadow-secondary/20;
+}
